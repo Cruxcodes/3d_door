@@ -1,0 +1,312 @@
+body{
+    height: 100vh;
+    display: flex;
+    justify-content:center;
+    margin: 0%;
+    align-items: center;
+    font-size: 350px;
+    perspective:5em;
+    perspective-origin: 50% -5%;
+    background:#222222;
+}
+.wrapper{
+    width: 0.9em;
+    height: 1.8em;
+    position: relative;
+    transform-style: preserve-3d;
+    transform: rotateX(0deg) rotateY(0deg);
+}
+.door1{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    transform-style: preserve-3d;
+    display: flex;
+    flex-direction: column;
+    transform: translateZ(.009em);
+}
+.doorFrameTop{
+    width: 100%;
+    position: absolute;
+    height: 1%;
+    background: #722e26;
+    transform-origin: bottom;
+    transform-style: preserve-3d;
+    transform: translateY(-100%) rotateX(90deg);
+}
+.doorFrameLeft{
+    height: 100%;
+    position: absolute;
+    width: 2%;
+    background: #722e26;
+    left: 0%;
+    bottom: 0%;
+    transform-origin: left;
+    transform: rotateY(90deg);
+}
+.doorFrameRight{
+    height: 100%;
+    position: absolute;
+    width: 2%;
+    background: #722e26;
+    right: 0%;
+    bottom: 0%;
+    transform-origin: right;
+    transform-style: preserve-3d;
+    transform: rotateY(270deg);
+}
+
+.door1 .doorFrameRight::after{
+    content: '';
+    position: absolute;
+    width: 434%;
+    height: 47%;
+    bottom: 0%;
+    /* left: -65%; */
+    right: 68%;
+    transform-origin: bottom;
+    transform: translateZ(10px) rotateX(-90deg);
+    background: #e66c40;
+    box-shadow: inset 0px 0px 20px black;
+}
+.topPart{
+    height: 5%;
+    width: 100%;
+    position: relative;
+    background: #722e26;
+    backface-visibility: visible;
+}
+/* .door1 .doorFrameTop::after{
+    content: '';
+    position: absolute;
+    width: 95.5%;
+    height: 400%;
+    background: #e66c40;
+    left: 50%;
+    transform: translateZ(-2px) translateY(-100%) translateX(-50%) ;
+    box-shadow: inset 0px 0px 20px black;
+} */
+
+.door1 .doorFrameTop::before{
+    /* content: ''; */
+    position: absolute;
+    width: 95.5%;
+    height: 400%;
+    background: #e66c40;
+ 
+    transform-origin: bottom;
+    left: 50%;
+    transform: translateX(100%) translateY(-10000%);
+    /* transform: translateZ(-2px) translateY(-100%) translateX(-50%) ; */
+    box-shadow: inset 0px 0px 20px black;
+}
+.structure{
+    position: relative;
+    width: 100%;
+    height: 95%;
+    transform-style: preserve-3d;
+    display: flex;
+}
+
+.structure::after{
+    content: '';
+    position: absolute;
+    height: 103%;
+    width: 90%;
+    left: 50%;
+    bottom: 0%;
+    background: #e66c40;
+    box-shadow: inset 2px 2px 20px black;
+    transform: translateX(-50%);
+    /* z-index: -11; */
+}
+
+.structure::before{
+    content: '';
+    position: absolute;
+    height: 99.5%;
+    width: 81%;
+    left: 50%;
+    bottom: 0%;
+    background: #5d3826;
+    box-shadow: inset 2px 2px 20px black;
+    transform: translateX(-50%);
+    z-index: 11;
+}
+
+.leftPart,.rightPart{
+    width: 8.75%;
+    height: 100%;
+    background: #722e26;
+    position: relative;
+    transform-style: preserve-3d;
+    backface-visibility: visible;
+}
+
+.center{
+    width: 82.5%;
+    position: relative;
+    height: 100%;
+    backface-visibility: visible;
+    transform-style: preserve-3d;
+}
+
+.door1 .center{
+    transform-origin: left;
+}
+
+.opened{
+    width: 94.8%;
+    height: 98.5%;
+    position: absolute;
+    bottom: 0%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.door1 .leftPart::before{
+    content: '';
+    position: absolute;
+    transform-origin: left;
+    background: #e66c40;
+    width: 100%;
+    height: 105%;
+    bottom: 0%;
+    transform: translateX(10px) translateZ(-5px) rotateY(90deg);
+    box-shadow: inset 0px 0px 20px  black;
+}
+
+.door1 .rightPart::before{
+    content: '';
+    position: absolute;
+    transform-origin: right;
+    background: #e66c40;
+    width: 100%;
+    height: 105%;
+    bottom: 0%;
+    transform: translateX(-10px) translateZ(-5px) rotateY(270deg);
+    box-shadow: inset 0px 0px 20px black;
+}
+
+.doorOpen{
+    width: 81%;
+    height: 94.5%;
+    transform-style: preserve-3d;
+    position: absolute;
+    bottom: 0%;
+    left: 50%;
+    transform-origin: left;
+    transform: translateZ(4px) translateX(-50%) rotateY(-0deg);
+    z-index: 111;
+}
+
+.front{
+    width: 100%;
+    height: 100%;
+    position: inherit;
+    background: url(../assets/hm.jpg);
+    background-size: cover;
+    background-position: 50%;
+    transform-style: preserve-3d;
+}
+
+.front::before{
+    position: absolute;
+    content: '';
+    height: 100%;
+    width: 13%;
+    left: -12.5%;
+    transform-origin: right;
+    background: #271c1c;
+    transform: rotateY(-90deg); 
+}
+.front::after{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 5.5%;
+    background: #271c1c;
+    transform-origin: top;
+    transform: rotateX(-90deg);
+}
+.back{
+    width: 100%;
+    position: relative;
+    height: 100%;
+    background:url(../assets/hm.jpg), linear-gradient(180deg, rgba(57,57,57,0.9556197478991597) 35%, rgba(56,56,56,0.6558998599439776) 100%);
+    transform-style: preserve-3d;
+    transform: translateZ(-.09em) rotateY(180deg); 
+}
+
+.back::before{
+    position: absolute;
+    content: '';
+    height: 100%;
+    width: 12.9%;
+    background:#271c1c;
+    left: -12.5%;
+    transform-origin: right;
+    transform: rotateY(-90deg) rotateY(0deg);
+}
+.back::after{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 5.5%;
+    bottom: 0%;
+    background:#271c1c;
+    transform-origin: bottom;
+    transform: rotateX(90deg);
+}
+.door2{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    transform-style: preserve-3d;
+    display: flex;
+    transform: translateZ(-.09em);
+    flex-direction: column;
+    z-index: inherit;
+}
+
+.door2 .center{
+    transform: rotateY(180deg);
+    box-shadow: inset 0px 0px 20px 10px black;
+    background: rgba(0, 0, 0, 0.404);
+}
+
+.buttons{
+    position: absolute;
+    bottom: 0%;
+    right: 2%;
+}
+.buttons input{
+    position: relative;
+    top: 100%;
+}
+.open{
+    animation: open 5s ease-in 1;
+    transform: translateZ(4px) translateX(-50%) rotateY(-170deg);
+}
+
+.close{
+    animation: close 3s ease-in 1;
+    transform: translateZ(4px) translateX(-50%) rotateY(-0deg);
+}
+@keyframes open{
+    from{
+        transform: translateZ(4px) translateX(-50%) rotateY(-0deg);
+    }
+    to{
+        transform: translateZ(4px) translateX(-50%) rotateY(-170deg);
+    }
+}
+
+@keyframes close{
+    from{
+        transform: translateZ(4px) translateX(-50%) rotateY(-170deg);
+    }
+    to{
+        transform: translateZ(4px) translateX(-50%) rotateY(-0deg);
+    }
+}
